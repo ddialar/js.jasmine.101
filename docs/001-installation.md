@@ -19,14 +19,14 @@
 
 1. Create a directory where the tests will be done.
 2. Initiate the `npm` project.
-```sh
-$ npm init
-# Fill the questions based on your needs.
-```
+  ```sh
+  $ npm init
+  # Fill the questions based on your needs.
+  ```
 3. Install `Bower` (the package manager for frontend tasks).
-```sh
-$ npm install bower --save-dev
-```
+  ```sh
+  $ npm install bower --save-dev
+  ```
 4. Initiate `Bower`.
 ```sh
 $ bower init
