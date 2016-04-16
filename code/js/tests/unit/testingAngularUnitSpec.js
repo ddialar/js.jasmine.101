@@ -1,15 +1,19 @@
 describe('Testing Angular JS test suite', function() {
+
+  beforeEach(module('testingAngularApp'));
+
   describe('Testing AngularJS Controller', function() {
-    it('should initialize the title in the scope', function() {
-      module('testingAngularApp');
+    var scope = {},
+        ctrl;
 
-      var scope = {},
-          ctrl;
-
-      inject(function($controller) {
+    beforeEach(
+      inject(function($rootScope, $controller) {
+        scope = $rootScope.$new();
         ctrl = $controller('testingAngularCtrl', { $scope: scope });
-      });
+      })
+    );
 
+    it('should initialize the title in the scope', function() {
       expect(scope.title).toBeDefined();
       expect(scope.title).toBe('Testing Angular with Jasmine');
     });
