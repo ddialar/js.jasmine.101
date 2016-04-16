@@ -5,9 +5,9 @@
 #### Index
 
 * [Needed previous Installation](#needed-previous-installation)
-* [Preparing the environment](preparing-the-environment)
-* [Starting the Karma environment](starting-karma-environment)
-* [Running Tests](running-tests)
+* [Preparing the environment](#preparing-the-environment)
+* [Starting the Karma environment](#starting-karma-environment)
+* [Running Tests](#running-tests)
 
 <a name="needed-previous-installation"></a>
 ## Needed previous Installation
