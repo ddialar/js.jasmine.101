@@ -4,20 +4,30 @@
 
 #### Index
 
-* [Needed previous Installation](#needed-previous-installation)
+* [Basic description](#basic-description)
+* [Available functions](#available-functions)
+  * [module](#available-functions-module)
+    * [Syntax](#available-functions-module-syntax)
+    * [Description](#available-functions-module-description)
+  * [inject](#available-functions-inject)
+    * [Syntax](#available-functions-inject-syntax)
+    * [Description](#available-functions-inject-description)
+    * [Example](#available-functions-inject-example)
 
+<a name="basic-description"></a>
 ## Basic description
 
-[Official Documentation](https://docs.angularjs.org/api/ngMock)
-[$controler Service](https://docs.angularjs.org/api/ngMock/service/$controller)
+- [Official Documentation](https://docs.angularjs.org/api/ngMock)
+- [$controler Service](https://docs.angularjs.org/api/ngMock/service/$controller)
 
 Angular Mocks is a bunch of code which injects and mocks AngularJS services into
 the testing code.
 
+<a name="available-functions"></a>
 ## Available functions
-
+<a name="available-functions-module"></a>
 ### module
-
+<a name="available-functions-module-syntax"></a>
 #### Syntax
 ```js
 module(<name_of_the_module_to_be_injected>);
@@ -25,14 +35,15 @@ module(<name_of_the_module_to_be_injected>);
 // Example
 module('testingAngularApp');
 ```
-
+<a name="available-functions-module-description"></a>
 #### Description
 This function registers a module configuration code which has been previously defined
 into the code to be tested. It collects the configuration information which will
 be used when the injector is created by the `inject` function.
 
+<a name="available-functions-inject"></a>
 ### inject
-
+<a name="available-functions-inject-syntax"></a>
 #### Syntax
 ```js
 inject(<functions_to_be_injected>);
@@ -40,11 +51,12 @@ inject(<functions_to_be_injected>);
 // Example
 inject('testingAngularApp');
 ```
-
+<a name="available-functions-inject-description"></a>
 #### Description
 This function wraps a function into an injectable function.
 The inject() creates new instance of $injector per test, which is then used for resolving references.
 
+<a name="available-functions-inject-example"></a>
 #### Example
 
 ```js
