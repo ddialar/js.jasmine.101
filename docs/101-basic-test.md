@@ -4,15 +4,15 @@
 
 #### Index
 
-* [Basic testing elements](#bst)
-* [describe block](#bst-describe)
-  * [Syntax](#bst-describe-syntax)
-  * [Description](#bst-describe-description)
-* [it block](#bst-it)
-  * [Syntax](#bst-it-syntax)
-  * [Description](#bst-it-description)
+* [Basic testing elements](#bte)
+* [describe block](#bte-describe)
+  * [Syntax](#bte-describe-syntax)
+  * [Description](#bte-describe-description)
+* [it block](#bte-it)
+  * [Syntax](#bte-it-syntax)
+  * [Description](#bte-it-description)
 
-<a name="bst"></a>
+<a name="bte"></a>
 ## Basic testing elements
 
 <a name="bte-describe"></a>
