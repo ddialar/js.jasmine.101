@@ -18,7 +18,6 @@
 ## Basic description
 
 - [Official Documentation](https://docs.angularjs.org/api/ngMock)
-- [$controler Service](https://docs.angularjs.org/api/ngMock/service/$controller)
 
 Angular Mocks is a bunch of code which injects and mocks AngularJS services into
 the testing code.
@@ -127,3 +126,16 @@ into the controller scope is defined.
 
 Meanwhile, the second `expect` instance will check if the content of that variable matches
 with the provided string.
+
+<a name="available-services"></a>
+## Available functions
+
+<a name="available-services-controller"></a>
+### $controler Service
+
+[$controler Service](https://docs.angularjs.org/api/ngMock/service/$controller)
+
+<a name="available-services-httpbackend"></a>
+### $httpBackend Service
+
+[$httpBackend Service](https://docs.angularjs.org/api/ngMock/service/$httpBackend)
