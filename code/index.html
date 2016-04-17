@@ -19,6 +19,7 @@
   </section>
   <section>
     <h2>Your Trip</h2>
+    <h4 ng-show="message">{{message}}</h4>
     <ul>
       <li ng-repeat="destination in destinations">
         <span>{{destination.city}}, {{destination.country}}</span>

@@ -4,7 +4,7 @@ app
   .module('testingAngularApp', [])
   .controller('testingAngularCtrl', testingAngularCtrl);
 
-function testingAngularCtrl($rootScope, $scope, $http) {
+function testingAngularCtrl($rootScope, $scope, $http, $timeout) {
   $scope.title = 'Testing Angular with Jasmine';
 
   $scope.destinations = [];
@@ -37,10 +37,12 @@ function testingAngularCtrl($rootScope, $scope, $http) {
             destination.weather = {};
             destination.weather.main = response.data.weather[0].main;
             destination.weather.temp = $scope.convertKelvinToCelsius(response.data.main.temp);
+          } else {
+            $scope.message = 'City not found';
           }
         },
         function error(error) {
-          console.log(error);
+          $scope.message = 'Server error';
         }
       )
   };
@@ -48,4 +50,12 @@ function testingAngularCtrl($rootScope, $scope, $http) {
   $scope.convertKelvinToCelsius = function(temp) {
     return Math.round(temp - 273);
   };
+
+  $scope.messageWatcher = $scope.$watch('message', function() {
+    if ($scope.message) {
+      $timeout(function() {
+        $scope.message = null;
+      }, 3000);
+    }
+  });
 };

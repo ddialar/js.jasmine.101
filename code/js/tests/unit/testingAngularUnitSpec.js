@@ -5,13 +5,15 @@ describe('Testing Angular JS test suite', function() {
   describe('Testing AngularJS Controller', function() {
     var scope = {},
         ctrl,
-        httpBackend;
+        httpBackend,
+        timeout;
 
     beforeEach(
-      inject(function($rootScope, $controller, $httpBackend) {
+      inject(function($rootScope, $controller, $httpBackend, $timeout) {
         scope = $rootScope.$new();
         ctrl = $controller('testingAngularCtrl', { $scope: scope });
         httpBackend = $httpBackend;
+        timeout = $timeout;
       })
     );
 
@@ -84,13 +86,35 @@ describe('Testing Angular JS test suite', function() {
           }
         );
 
+      // httpBackend
+      //   .when('GET', request)
+      //   .respond(
+      //     {
+      //       'weather': [{'main': 'Rain', 'detail': 'Light rain'}],
+      //       'main': {'temp': 288}
+      //     }
+      //   );
+
       scope.getWeather(scope.destination);
 
       httpBackend
         .flush();
 
+      // expect(scope.destination.city).toBe('Melbourne');
       expect(scope.destination.weather.main).toBe('Rain');
       expect(scope.destination.weather.temp).toBe(15);
     });
+
+    it('should remove error message after a fixed period of time', function() {
+      scope.message = 'Error';  // Manual edition of the vatiable content.
+      expect(scope.message).toBe('Error');
+
+      scope.$apply();           // We tell AngularJS that review the code for possible changes.
+
+      timeout.flush();
+
+      expect(scope.message).toBeNull();
+    });
+
   });
 });
