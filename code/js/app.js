@@ -3,7 +3,20 @@ var app = angular;
 app
   .module('testingAngularApp', [])
   .controller('testingAngularCtrl', testingAngularCtrl)
+  .service('testingAngularService', testingAngularService)
   .filter('warmestDestinations', warmestDestinations);
+
+function testingAngularService() {
+  var self = this;
+
+  self.getTestValue = function() {
+    return 'getTestValue';
+  };
+
+  return {
+    getTestValue: self.getTestValue
+  };
+};
 
 function testingAngularCtrl($rootScope, $scope, $http, $timeout) {
   $scope.title = 'Testing Angular with Jasmine';

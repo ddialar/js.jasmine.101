@@ -17,8 +17,10 @@ module.exports = function(config) {
     files: [
       '../../bower_components/angular/angular.min.js',
       '../../bower_components/angular-mocks/angular-mocks.js',
+      '../../bower_components/karma-read-json/karma-read-json.js',
       '../app.js',
-      'unit/*.js'
+      'unit/*.js',
+      {pattern: 'mockdata/*.json', included: false}
     ],
 
 
@@ -33,6 +35,10 @@ module.exports = function(config) {
       '../app.js': ['coverage']
     },
 
+    // plugins : [
+    //   // load the plugin
+    //   'karma-json-fixtures-preprocessor'
+    // ],
 
     // test results reporter to use
     // possible values: 'dots', 'progress'

@@ -6,14 +6,16 @@ describe('Testing Angular JS test suite', function() {
     var scope = {},
         ctrl,
         httpBackend,
-        timeout;
+        timeout,
+        testingAngularService;
 
     beforeEach(
-      inject(function($rootScope, $controller, $httpBackend, $timeout) {
+      inject(function($rootScope, $controller, $httpBackend, $timeout, _testingAngularService_) {
         scope = $rootScope.$new();
         ctrl = $controller('testingAngularCtrl', { $scope: scope });
         httpBackend = $httpBackend;
         timeout = $timeout;
+        testingAngularService = _testingAngularService_;
       })
     );
 
@@ -115,6 +117,16 @@ describe('Testing Angular JS test suite', function() {
 
       expect(scope.message).toBeNull();
     });
+
+    it('should access to the service', function() {
+      var valid_respond = readJSON('mockdata/data.json');
+      console.log(valid_respond);
+
+
+      // expect(testingAngularService.getTestValue()).toBe('getTestValue');
+    });
+
+
 
   });
 });

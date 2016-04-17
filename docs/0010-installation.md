@@ -9,6 +9,7 @@
 * [Starting the Karma environment](#starting-karma-environment)
 * [Running Tests](#running-tests)
 * [Setting Up Coverage](#coverage)
+* [Reading from JSON mocked files](#json)
 
 <a name="needed-previous-installation"></a>
 ## Needed previous Installation
@@ -170,3 +171,41 @@ In order to install this coverage tool, we have to follow the next steps:
   },
   ```
 7. Stop the `Karma` process (if it was running) and restart it. The coverage report will be created.
+
+<a name="json"></a>
+## Reading from JSON mocked files
+
+In order to allow Karma to read from local JSON files which contain mocking data, we have to follow
+the next steps:
+
+1. Install the packege `karma-read-json`.
+
+  ```js
+  $ bower install karma-read-json
+  ```
+2. Edit the `karma.conf.js` file.
+3. Locate the `files` key and reference the `karma-read-json.js` library.
+
+  ```js
+  files: [
+    // ...
+    '<path_to_bower_libraries>/bower_components/karma-read-json/karma-read-json.js',
+    // ...
+  ],
+  ```
+4. Into the same `files` key, reference the JSON files which will be read by `Karma` this way:
+
+  ```js
+  files: [
+    // ...
+    {pattern: '<path_to_json_files>/*.json', included: false},
+    // ...
+  ],
+  ```
+5. Restart `Karma`.
+6. Into the tests scripts, access to the JSON files using the `readJSON()` function.
+
+  ```js
+  var testingData = readJSON('data.json');
+  console.log(testingData);
+  ```
