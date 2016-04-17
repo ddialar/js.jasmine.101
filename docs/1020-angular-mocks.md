@@ -128,7 +128,7 @@ Meanwhile, the second `expect` instance will check if the content of that variab
 with the provided string.
 
 <a name="available-services"></a>
-## Available functions
+## Available services
 
 <a name="available-services-controller"></a>
 ### $controler Service
@@ -137,5 +137,3 @@ with the provided string.
 
 <a name="available-services-httpbackend"></a>
 ### $httpBackend Service
-
-[$httpBackend Service](https://docs.angularjs.org/api/ngMock/service/$httpBackend)
