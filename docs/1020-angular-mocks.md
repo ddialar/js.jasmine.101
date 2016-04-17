@@ -2,6 +2,8 @@
 
 # Angular Mocks
 
+[Official Documentation](https://docs.angularjs.org/api/ngMock)
+
 #### Index
 
 * [Basic description](#basic-description)
@@ -16,8 +18,6 @@
 
 <a name="basic-description"></a>
 ## Basic description
-
-- [Official Documentation](https://docs.angularjs.org/api/ngMock)
 
 Angular Mocks is a bunch of code which injects and mocks AngularJS services into
 the testing code.
@@ -48,12 +48,41 @@ be used when the injector is created by the `inject` function.
 inject(<functions_to_be_injected>);
 
 // Example
-inject('testingAngularApp');
+inject(function($scope, $httpBackend) {
+  // Testing general variables initialization...
+});
 ```
 <a name="available-functions-inject-description"></a>
 #### Description
-This function wraps a function into an injectable function.
-The inject() creates new instance of $injector per test, which is then used for resolving references.
+This method receives a function as parameter.
+
+This second functions receives as parameters, the services which we want to inject into our tests.
+This way, we can reference the injected services with internal variables defined into the test
+scripts.
+
+**NOTE**: In order to inject **our own services** which are bound to the loaded module (see the
+[module section](#available-functions-module)), we have to add and underscore ( _ ) at the
+beginning and at the end of our server name.
+
+For example, if in our application script we have defined that:
+
+```js
+var app = angular
+            .module('MyApp', [])
+            .service('myService', myService);
+```
+
+At the instant of inject our own service by the `inject` method, we have to do that:
+
+```js
+var myService;  // Global testing script variable.
+
+inject(function($scope, _myService_) {
+  myService = _myService_;
+});
+```
+
+After that, our own service (`myService` in this case) will be totally accessible from our testing scripts.
 
 <a name="available-functions-inject-example"></a>
 #### Example
@@ -134,6 +163,3 @@ with the provided string.
 ### $controler Service
 
 [$controler Service](https://docs.angularjs.org/api/ngMock/service/$controller)
-
-<a name="available-services-httpbackend"></a>
-### $httpBackend Service
