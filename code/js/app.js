@@ -2,7 +2,8 @@ var app = angular;
 
 app
   .module('testingAngularApp', [])
-  .controller('testingAngularCtrl', testingAngularCtrl);
+  .controller('testingAngularCtrl', testingAngularCtrl)
+  .filter('warmestDestinations', warmestDestinations);
 
 function testingAngularCtrl($rootScope, $scope, $http, $timeout) {
   $scope.title = 'Testing Angular with Jasmine';
@@ -58,4 +59,16 @@ function testingAngularCtrl($rootScope, $scope, $http, $timeout) {
       }, 3000);
     }
   });
+};
+
+function warmestDestinations(destinations, minimumTemp) {
+  var warmDestinations = [];
+
+  angular.forEach(destinations, function(destination) {
+    if (destination.weather && destination.weather.temp && destination.weather.temp >= minimumTemp) {
+      warmDestinations.push(destination);
+    }
+  });
+
+  return warmDestinations;
 };

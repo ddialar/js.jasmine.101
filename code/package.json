@@ -25,6 +25,7 @@
     "bower": "^1.7.9",
     "jasmine": "^2.4.1",
     "karma": "^0.13.22",
-    "karma-cli": "^0.1.2"
+    "karma-cli": "^0.1.2",
+    "karma-coverage": "^0.5.5"
   }
 }

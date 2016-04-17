@@ -8,6 +8,7 @@
 * [Preparing the environment](#preparing-the-environment)
 * [Starting the Karma environment](#starting-karma-environment)
 * [Running Tests](#running-tests)
+* [Setting Up Coverage](#coverage)
 
 <a name="needed-previous-installation"></a>
 ## Needed previous Installation
@@ -107,3 +108,65 @@
   $ karma start <karma_configuration_file_name>
   # <karma_configuration_file_name> will be karma.conf.js by default.
   ```
+
+<a name="coverage"></a>
+## Setting Up Coverage
+
+[Karma Coverage Official Documentation](https://karma-runner.github.io/0.8/config/coverage.html)
+
+The `coverage` is a tool which will help us to know how much code is controlled by tests.
+
+In order to work with Karma, there is a package named `karma-coverage` which uses [Istanbul](https://github.com/gotwarlost/istanbul)
+(a tool for creating JS coverage reports).
+
+In order to install this coverage tool, we have to follow the next steps:
+
+1. Open a CLI into the project folder, at the same level that the `package.json` file.
+2. Run this command:
+
+  ```sh
+  $ npm install karma-coverage -g
+  ```
+3. Locate the `karma.conf.js` file and edit it.
+4. Into the `Karma` configuration file, locate the `preprocessors` key and edit its content like that:
+
+  ```js
+  preprocessors: {
+    '<files_to_be_processed>': 'coverage'
+  },
+  // <files_to_be_processed> is a relative path to a file o to a folder which contains
+  // the bunch of files which will be processed in order to obtain the coverage report.
+
+  // For example:
+  preprocessors: {
+    '../app.js': 'coverage'
+  },
+  ```
+5. After that, locate the `reporters` key and edit its content like that:
+
+  ```js
+  reporters: ['progress', 'coverage'],
+  ```
+6. Under the `reporters` key, create a new tag named `coverageReporter` with this content:
+
+  ```js
+  coverageReporter: {
+    type: '<coverage_report_type>',
+    dir: '<coverage_report_folder>'
+  },
+  // <coverage_report_type> is the format used in order to create the reporter. The available values are:
+  //    html (default).
+  //    lcov (lcov and html).
+  //    lcovonly.
+  //    text.
+  //    text-summary.
+  //    cobertura (xml format supported by Jenkins).
+  // <coverage_report_folder> is the folder where will be stored the generated reports.
+
+  // For Example:
+  coverageReporter: {
+    type: 'html',
+    dir: 'coverage/'
+  },
+  ```
+7. Stop the `Karma` process (if it was running) and restart it. The coverage report will be created.

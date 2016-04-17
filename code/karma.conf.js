@@ -15,10 +15,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../../bower_components/angular/angular.min.js',
-      '../../bower_components/angular-mocks/angular-mocks.js',
-      '../app.js',
-      'unit/*.js'
+      'bower_components/angular/angular.min.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'js/app.js',
+      'js/tests/unit/*.js'
     ],
 
 
@@ -30,7 +30,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '../app.js': ['coverage']
+      'js/app.js': ['coverage']
     },
 
 
@@ -41,8 +41,8 @@ module.exports = function(config) {
 
     // https://karma-runner.github.io/0.8/config/coverage.html
     coverageReporter: {
-      type: 'html',
-      dir: 'coverage/'
+      type: 'lcov',
+      dir: 'js/tests/unit/coverage/'
     },
 
 

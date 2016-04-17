@@ -29,6 +29,11 @@
       </li>
     </ul>
   </section>
-
+  <section>
+    <h2>Warmes Destinations</h2>
+    <div ng-repeat="destination in destinations | warmestDestinations: 10">
+      <span>{{destination.city}}, {{destination.country}}</span>
+    </div>
+  </section>
 </body>
 </html>
