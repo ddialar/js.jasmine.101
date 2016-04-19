@@ -6,6 +6,8 @@
 
 * [Needed previous Installation](#needed-previous-installation)
 * [Preparing the environment](#preparing-the-environment)
+  * [Microsoft Windows](#preparing-the-environment-windows)
+  * [GNU/Linux](#preparing-the-environment-linux)
 * [Starting the Karma environment](#starting-karma-environment)
 * [Running Tests](#running-tests)
 * [Setting Up Coverage](#coverage)
@@ -18,6 +20,9 @@
 
 <a name="preparing-the-environment"></a>
 ## Preparing the environment
+
+<a name="preparing-the-environment-windows"></a>
+### Microsoft Windows
 
 1. Create a directory where the tests will be done.
 2. Initiate the `npm` project.
@@ -36,35 +41,52 @@
   ```sh
   $ bower init
   ```
-5. Install `AngularJS`.
+5. Install `AngularJS` and `AngularJS Mocks`.
 
   ```sh
-  $ bower install angular --save
+  $ bower install angular angular-mocks --save
   ```
-6. Install `Angular Mocks`.
+6. Install `Karma`, `Karma CLI`, `PhantomJS` and `Jasmine`.
 
   ```sh
-  $ bower install angular-mocks --save
+  $ npm install karma karma-cli phantomjs jasmine -g
   ```
-7. Install `Karma`.
+
+<a name="preparing-the-environment-linux"></a>
+### GNU/Linux
+
+1. Create a project directory.
+2. Create the NPM and Bower (the package manager for frontend tasks) projects.
 
   ```sh
-  $ npm install karma -g
+  <project_directory> $ npm init
+  <project_directory> $ bower init
   ```
-8. Install `Karma` CLI.
+3. Install `AngularJS` and `AngularJS Mocks`.
 
   ```sh
-  $ npm install karma-cli -g
+  <project_directory> $ bower install angular angular-mocks --save
   ```
-9. Install `PhantomJS`.
+4. Install the next packages globally: `Karma`, `Karma CLI`, `Jasmine` and `PhantomJS`.
 
   ```sh
-  $ npm install phantomjs -g
+  <project_directory> $ npm install -g karma karma-cli jasmine phantomjs
   ```
-10. Install `Jasmine`.
+5. Install the next packages locally into the project folder: `Karma`, `Karma Jasmine`,
+`Karma PhantomJS Launcher`, `Jasmine Core` and `PhantomJS Prebuild`.
 
   ```sh
-  $ npm install jasmine -g
+  <project_directory> $ npm install --save-dev karma karma-jasmine karma-phantomjs-launcher jasmine-core phantomjs-prebuilt
+  ```
+6. (Optional) Some cases, it's possible to have problems by the `node_modules` permissions. In order
+to solve that trouble, it will be needed to change permissions and user for that folder. to do that,
+it's needed to run this command:
+
+  ```sh
+  # If the folder is located into the /usr/local/lib one:
+  $ sudo chown -R $USER /usr/local/lib/node_modules/
+  # or if the folder is located into the /usr/lib/
+  $ sudo chown -R $USER /usr/lib/node_modules/
   ```
 
 <a name="starting-karma-environment"></a>
