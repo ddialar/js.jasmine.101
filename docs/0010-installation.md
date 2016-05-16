@@ -73,10 +73,10 @@
   <project_directory> $ npm install -g karma karma-cli jasmine phantomjs
   ```
 5. Install the next packages locally into the project folder: `Karma`, `Karma Jasmine`,
-`Karma PhantomJS Launcher`, `Jasmine Core` and `PhantomJS Prebuild`.
+`Karma PhantomJS Launcher`, `Karma Spec Reporter`, `Jasmine Core` and `PhantomJS Prebuild`.
 
   ```sh
-  <project_directory> $ npm install --save-dev karma karma-jasmine karma-phantomjs-launcher jasmine-core phantomjs-prebuilt
+  <project_directory> $ npm install --save-dev karma karma-jasmine karma-phantomjs-launcher karma-spec-reporter jasmine-core phantomjs-prebuilt
   ```
 6. (Optional) Some cases, it's possible to have problems by the `node_modules` permissions. In order
 to solve that trouble, it will be needed to change permissions and user for that folder. to do that,
