@@ -49,7 +49,7 @@
 6. Install `Karma`, `Karma CLI`, `PhantomJS` and `Jasmine`.
 
   ```sh
-  $ npm install karma karma-cli phantomjs jasmine -g
+  $ npm install karma karma-cli phantomjs-prebuilt jasmine -g
   ```
 
 <a name="preparing-the-environment-linux"></a>
@@ -70,7 +70,7 @@
 4. Install the next packages globally: `Karma`, `Karma CLI`, `Jasmine` and `PhantomJS`.
 
   ```sh
-  <project_directory> $ npm install -g karma karma-cli jasmine phantomjs
+  <project_directory> $ npm install -g karma karma-cli jasmine phantomjs-prebuilt
   ```
 5. Install the next packages locally into the project folder: `Karma`, `Karma Jasmine`,
 `Karma PhantomJS Launcher`, `Karma Spec Reporter`, `Jasmine Core` and `PhantomJS Prebuild`.
